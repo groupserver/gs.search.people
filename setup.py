@@ -32,6 +32,9 @@ setup(name='gs.search.people',
     zip_safe=True,
     install_requires=[
         'setuptools',
+        'gs.content.form',
+        'gs.site.member',
+        'Products.CustomUserFolder',
         # -*- Extra requirements: -*-
     ],
     entry_points="""
