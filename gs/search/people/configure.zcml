@@ -9,6 +9,12 @@
     name="admin_search_people.html"
     class=".searchpeople.SearchPeople"
     permission="zope2.ManageProperties"/>
+    
+  <browser:viewlet name="gs-search-people-link"
+    manager="gs.site.change.base.interfaces.ISiteAdminLinks"
+    template="browser/templates/adminlinks.pt"
+    permission="zope2.ManageProperties"
+    weight="7" />
 
 </configure>
 
