@@ -10,7 +10,7 @@ from interfaces import IGSSearchPeople
 from queries import SearchPeopleQuery
 
 class SearchPeople(SiteForm):
-    label = u'Search for People'
+    label = u'Search for a Site Member'
     pageTemplateFileName = 'browser/templates/searchpeople.pt'
     template = ZopeTwoPageTemplateFile(pageTemplateFileName)
     form_fields = form.Fields(IGSSearchPeople, render_context=False)
