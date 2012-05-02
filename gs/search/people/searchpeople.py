@@ -1,5 +1,6 @@
 # coding=utf-8
 from zope.cachedescriptors.property import Lazy
+from zope.component import createObject
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from gs.content.form.form import SiteForm
@@ -14,7 +15,7 @@ class SearchPeople(SiteForm):
 
     def __init__(self, context, request):
         SiteForm.__init__(self, context, request)
-    
+        
     @Lazy
     def searchQuery(self):
         da = self.context.zsqlalchemy
@@ -26,9 +27,17 @@ class SearchPeople(SiteForm):
     def handle_search(self, action, data):
     
         email = data['email']
-        uids = self.searchQuery.find_uids_by_email(email)
-    
-        self.status = u'I should do stuff with %s.' % uids
+        userId = self.searchQuery.find_uids_by_email(email)
+        
+        if userId:
+            self.status = u'Be joyous! You found someone.'
+            userInfo = createObject('groupserver.UserFromId',
+                                    self.context, userId)
+            uri = userInfo.url
+            return self.request.RESPONSE.redirect(uri)
+        else:
+            self.status = u'Could not find any site-member with the '\
+                u'email address <code class="email">%s</code>.' % email
         assert type(self.status) == unicode
         
     def handle_search_action_failure(self, action, data, errors):
