@@ -1,4 +1,5 @@
 # coding=utf-8
+from email.utils import parseaddr
 from zope.cachedescriptors.property import Lazy
 from zope.component import createObject
 from zope.formlib import form
@@ -32,7 +33,7 @@ class SearchPeople(SiteForm):
     @form.action(label=u'Search', failure='handle_search_action_failure')
     def handle_search(self, action, data):
     
-        email = data['email']
+        email = parseaddr(data['email'])[1]
         userId = self.searchQuery.find_uids_by_email(email)
         
         if userId and (userId in self.siteMembers):
