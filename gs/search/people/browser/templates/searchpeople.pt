@@ -1,0 +1,49 @@
+<html metal:use-macro="context/@@groupserver_site_home_layout/page">
+  <head>
+    <title metal:fill-slot="title">
+      <span tal:replace="view/label"/>:
+      <span tal:replace="view/siteInfo/name"/>
+    </title>
+  </head>
+  <body>
+    <tal:block content="structure provider:groupserver.FormStatusMessage"
+      define="errors view/errors; status view/status; widgets view/widgets"
+      metal:fill-slot="messages">&#160;</tal:block>
+    <tal:block metal:fill-slot="contextnavigation">&#160;</tal:block>
+    <div id="gs-search-people" metal:fill-slot="body">
+      <form enctype="multipart/form-data"  method="post" action="."
+        tal:attributes="action request/URL" id="search-people">
+        <h1 tal:content="view/label">Search for People</h1>
+        <tal:block define="widgets view/widgets">
+          <tal:block replace="structure provider:groupserver.FormWidgets"/>
+        </tal:block>
+        <div class="buttons" tal:condition="view/availableActions">
+          <tal:block repeat="action view/actions">
+            <div class="formelementbutton">
+              <span tal:replace="structure action/render">Button</span>
+            </div>
+          </tal:block>
+        </div><!--buttons-->
+      </form>
+    </div><!--gs-search-people-->
+    <tal:block metal:fill-slot="javascript">
+      <script type="text/javascript"
+        src="/++resource++check_required-20071214.js">&#160;</script>
+      <script type="text/javascript"
+        tal:define="widgets view/widgets; 
+          button string:#form\\.actions\\.search"
+        tal:content="provider:groupserver.RequiredWidgetsJavaScript">
+        alert("I have not been replaced.");
+      </script>
+      <script type="text/javascript"
+        src="/++resource++popup_help-20071218.js">&#160;</script>
+      <script type="text/javascript">
+        jQuery(document).ready( function() {
+            GSPopupFormHelp.init('#search-people');
+            jQuery('#form\\.email').focus();
+        });
+      </script>
+    </tal:block>
+  </body>
+</html>
+
