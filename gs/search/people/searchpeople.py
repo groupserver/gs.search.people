@@ -4,6 +4,7 @@ from zope.component import createObject
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from gs.content.form.form import SiteForm
+from gs.site.member import SiteMembers
 from interfaces import IGSSearchPeople
 from queries import SearchPeopleQuery
 
@@ -23,13 +24,18 @@ class SearchPeople(SiteForm):
         assert retval
         return retval
     
+    @Lazy
+    def siteMembers(self):
+        retval = SiteMembers(self.context)
+        return retval
+    
     @form.action(label=u'Search', failure='handle_search_action_failure')
     def handle_search(self, action, data):
     
         email = data['email']
         userId = self.searchQuery.find_uids_by_email(email)
         
-        if userId:
+        if userId and (userId in self.siteMembers):
             self.status = u'Be joyous! You found someone.'
             userInfo = createObject('groupserver.UserFromId',
                                     self.context, userId)
