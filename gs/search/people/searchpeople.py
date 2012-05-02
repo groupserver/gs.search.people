@@ -3,9 +3,8 @@ from zope.cachedescriptors.property import Lazy
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from gs.content.form.form import SiteForm
-from gs.content.form.select import select_widget
-from gs.content.form.utils import enforce_schema
 from interfaces import IGSSearchPeople
+from queries import SearchPeopleQuery
 
 class SearchPeople(SiteForm):
     label = u'Search for People'
@@ -15,10 +14,21 @@ class SearchPeople(SiteForm):
 
     def __init__(self, context, request):
         SiteForm.__init__(self, context, request)
-        
+    
+    @Lazy
+    def searchQuery(self):
+        da = self.context.zsqlalchemy
+        retval = SearchPeopleQuery(da)
+        assert retval
+        return retval
+    
     @form.action(label=u'Search', failure='handle_search_action_failure')
     def handle_search(self, action, data):
-        self.status = u'I should do stuff.'
+    
+        email = data['email']
+        uids = self.searchQuery.find_uids_by_email(email)
+    
+        self.status = u'I should do stuff with %s.' % uids
         assert type(self.status) == unicode
         
     def handle_search_action_failure(self, action, data, errors):
