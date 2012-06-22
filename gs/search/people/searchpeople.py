@@ -17,13 +17,7 @@ class SearchPeople(SiteForm):
 
     def __init__(self, context, request):
         SiteForm.__init__(self, context, request)
-        
-    @Lazy
-    def searchQuery(self):
-        da = self.context.zsqlalchemy
-        retval = SearchPeopleQuery(da)
-        assert retval
-        return retval
+        self.searchQuery = SearchPeopleQuery(da)
     
     @Lazy
     def siteMembers(self):
