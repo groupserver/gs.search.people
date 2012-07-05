@@ -17,7 +17,7 @@ class SearchPeople(SiteForm):
 
     def __init__(self, context, request):
         SiteForm.__init__(self, context, request)
-        self.searchQuery = SearchPeopleQuery(da)
+        self.searchQuery = SearchPeopleQuery()
     
     @Lazy
     def siteMembers(self):

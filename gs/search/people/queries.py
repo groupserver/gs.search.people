@@ -3,7 +3,7 @@ import sqlalchemy as sa
 from gs.database import getTable, getSession
 
 class SearchPeopleQuery(object):
-    def __init__(self, da):
+    def __init__(self):
         self.userEmailTable = getTable('user_email')
 
     def find_uids_by_email(self, emailAddress):
