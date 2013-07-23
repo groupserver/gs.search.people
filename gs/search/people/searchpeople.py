@@ -9,8 +9,9 @@ from gs.site.member import SiteMembers
 from interfaces import IGSSearchPeople
 from queries import SearchPeopleQuery
 
+
 class SearchPeople(SiteForm):
-    label = u'Search for a Site Member'
+    label = u'Search for a site member'
     pageTemplateFileName = 'browser/templates/searchpeople.pt'
     template = ZopeTwoPageTemplateFile(pageTemplateFileName)
     form_fields = form.Fields(IGSSearchPeople, render_context=False)
