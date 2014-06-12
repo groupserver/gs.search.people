@@ -4,7 +4,7 @@ from zope.cachedescriptors.property import Lazy
 from zope.component import createObject
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
-from gs.content.form.form import SiteForm
+from gs.content.form.base import SiteForm
 from gs.site.member import SiteMembers
 from interfaces import IGSSearchPeople
 from queries import SearchPeopleQuery
