@@ -1,6 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="gs.search.people"
       metal:use-macro="context/@@groupserver_layout/page">
   <head>
     <title metal:fill-slot="title">
@@ -12,7 +14,7 @@
   </head>
   <body>
     <tal:block content="structure provider:groupserver.FormStatusMessage"
-               define="errors view/errors; status view/status; 
+               define="errors view/errors; status view/status;
                        widgets view/widgets"
                metal:fill-slot="messages">&#160;</tal:block>
     <ul metal:fill-slot="breadcrumb">
@@ -26,8 +28,8 @@
         <span tal:content="view/label">This group</span>
       </li>
     </ul>
-    <form id="gs-search-people" class="gs-content-js-required" 
-          metal:fill-slot="body" enctype="multipart/form-data" 
+    <form id="gs-search-people" class="gs-content-js-required"
+          metal:fill-slot="body" enctype="multipart/form-data"
           method="post" action="." tal:attributes="action request/URL">
       <h1 tal:content="view/label">Search for People</h1>
       <tal:block define="widgets view/widgets">
