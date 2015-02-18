@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-10-24 21:57+0000\n"
+"POT-Creation-Date: 2015-02-18 19:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,12 +14,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./searchpeople.py:67
+#: ./searchpeople.py:65
 msgid "<p>There are errors:</p>"
 msgstr ""
 
-#: ./searchpeople.py:65
+#: ./searchpeople.py:63
 msgid "<p>There is an error:</p>"
+msgstr ""
+
+#: ./searchpeople.py:50
+msgid "Be joyous! You found someone."
+msgstr ""
+
+#: ./searchpeople.py:56
+msgid "Could not find any site-member with the email address <code class=\"email\">${email}</code>."
 msgstr ""
 
 #: ./interfaces.py:23
@@ -40,15 +48,5 @@ msgstr ""
 
 #: ./interfaces.py:24
 msgid "The email address of the person you wish to find."
-msgstr ""
-
-#. Default: "Could not find any site-member with the email address <code class=\"email\">${email}</code>."
-#: ./searchpeople.py:57
-msgid "search-failed"
-msgstr ""
-
-#. Default: "Be joyous! You found someone."
-#: ./searchpeople.py:50
-msgid "search-success"
 msgstr ""
 

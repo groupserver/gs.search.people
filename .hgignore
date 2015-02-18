@@ -1,5 +1,7 @@
 syntax: glob
 *pyc
+*mo
+*ine
 *~
 *egg-info
 dist

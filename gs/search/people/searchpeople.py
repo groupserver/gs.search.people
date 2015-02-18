@@ -47,15 +47,13 @@ class SearchPeople(SiteForm):
         userId = self.searchQuery.find_uids_by_email(email)
 
         if userId and (userId in self.siteMembers):
-            self.status = _('search-success',
-                            'Be joyous! You found someone.')
+            self.status = _('Be joyous! You found someone.')
             userInfo = createObject('groupserver.UserFromId',
                                     self.context, userId)
             uri = userInfo.url
             return self.request.RESPONSE.redirect(uri)
         else:
             self.status = _(
-                'search-failed',
                 'Could not find any site-member with the email address '
                 '<code class="email">${email}</code>.',
                 mapping={'email': email})
