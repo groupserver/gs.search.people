@@ -1,22 +1,22 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
+# 
 # Translators:
+# Alice Rose <heldinz@posteo.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: gs.search.people\n"
 "POT-Creation-Date: 2015-02-22 20:16+0000\n"
-"PO-Revision-Date: 2015-02-18 19:17+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-02-22 20:21+0000\n"
+"Last-Translator: Alice Rose <heldinz@posteo.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/gs-search-people/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Domain: DOMAIN\n"
+"Language: de\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: gs.search.people\n"
-"Language: de\n"
 
 #. Default: "The email address of the person you wish to find."
 #: ./interfaces.py:24
@@ -26,12 +26,12 @@ msgstr ""
 #. Default: "Email address"
 #: ./interfaces.py:23
 msgid "email-entry-label"
-msgstr ""
+msgstr "Mail-Adresse"
 
 #. Default: "Search"
 #: ./searchpeople.py:43
 msgid "search-action"
-msgstr ""
+msgstr "Suchen"
 
 #. Default: "Search for a site member"
 #: ./searchpeople.py:29
@@ -43,7 +43,8 @@ msgstr ""
 msgid "search-people-link"
 msgstr ""
 
-#. Default: "Could not find any site-member with the email address <code class=\"email\">${email}</code>."
+#. Default: "Could not find any site-member with the email address <code
+#. class=\"email\">${email}</code>."
 #: ./searchpeople.py:58
 msgid "status-person-not-found"
 msgstr ""
@@ -51,15 +52,14 @@ msgstr ""
 #. Default: "<p>There is an error:</p>"
 #: ./searchpeople.py:65
 msgid "status-problem"
-msgstr ""
+msgstr "<p>Es ist ein Fehler aufgetreten:</p>"
 
 #. Default: "<p>There are errors:</p>"
 #: ./searchpeople.py:67
 msgid "status-problems"
-msgstr ""
+msgstr "<p>Es sind mehrere Fehler aufgetreten:</p>"
 
 #. Default: "Be joyous! You found someone."
 #: ./searchpeople.py:51
 msgid "status-success"
 msgstr ""
-
