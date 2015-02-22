@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-22 20:13+0000\n"
+"POT-Creation-Date: 2015-02-22 20:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,45 +17,45 @@ msgstr ""
 #. Default: "The email address of the person you wish to find."
 #: ./interfaces.py:24
 msgid "email-entry-description"
-msgstr ""
+msgstr "The email address of the person you wish to find."
 
 #. Default: "Email address"
 #: ./interfaces.py:23
 msgid "email-entry-label"
-msgstr ""
+msgstr "Email address"
 
 #. Default: "Search"
 #: ./searchpeople.py:43
 msgid "search-action"
-msgstr ""
+msgstr "Search"
 
 #. Default: "Search for a site member"
 #: ./searchpeople.py:29
 msgid "search-people-form-label"
-msgstr ""
+msgstr "Search for a site member"
 
 #. Default: "Search for a <strong>site member.</strong>"
 #: ./browser/templates/adminlinks.pt:4
 msgid "search-people-link"
-msgstr ""
+msgstr "Search for a <strong>site member.</strong>"
 
 #. Default: "Could not find any site-member with the email address <code class=\"email\">${email}</code>."
 #: ./searchpeople.py:58
 msgid "status-person-not-found"
-msgstr ""
+msgstr "Could not find any site-member with the email address <code class=\"email\">${email}</code>."
 
 #. Default: "<p>There is an error:</p>"
 #: ./searchpeople.py:65
 msgid "status-problem"
-msgstr ""
+msgstr "<p>There is an error:</p>"
 
 #. Default: "<p>There are errors:</p>"
 #: ./searchpeople.py:67
 msgid "status-problems"
-msgstr ""
+msgstr "<p>There are errors:</p>"
 
 #. Default: "Be joyous! You found someone."
 #: ./searchpeople.py:51
 msgid "status-success"
-msgstr ""
+msgstr "Be joyous! You found someone."
 
