@@ -20,6 +20,7 @@ from . import GSMessageFactory as _
 
 class IGSSearchPeople(Interface):
     email = TextLine(
-        title=_('Email address'),
-        description=_('The email address of the person you wish to find.'),
+        title=_('email-entry-label', 'Email address'),
+        description=_('email-entry-description',
+            'The email address of the person you wish to find.'),
         required=True)

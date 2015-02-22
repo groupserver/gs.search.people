@@ -2,5 +2,5 @@
     i18n:domain="gs.search.people"
     id="gs-search-people-link">
   <a href="/admin_search_people.html"
-     i18n:translate="">Search for a <strong>site member.</strong></a>
+     i18n:translate="search-people-link">Search for a <strong>site member.</strong></a>
 </li>

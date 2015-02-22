@@ -26,7 +26,7 @@ from . import GSMessageFactory as _
 
 
 class SearchPeople(SiteForm):
-    label = _('Search for a site member')
+    label = _('search-people-form-label', 'Search for a site member')
     pageTemplateFileName = 'browser/templates/searchpeople.pt'
     template = ZopeTwoPageTemplateFile(pageTemplateFileName)
     form_fields = form.Fields(IGSSearchPeople, render_context=False)
@@ -40,26 +40,28 @@ class SearchPeople(SiteForm):
         retval = SiteMembers(self.context)
         return retval
 
-    @form.action(label=_('Search'), failure='handle_search_action_failure')
+    @form.action(label=_('search-action', 'Search'), 
+                 failure='handle_search_action_failure')
     def handle_search(self, action, data):
 
         email = parseaddr(data['email'])[1]
         userId = self.searchQuery.find_uids_by_email(email)
 
         if userId and (userId in self.siteMembers):
-            self.status = _('Be joyous! You found someone.')
+            self.status = _('status-success', 
+                'Be joyous! You found someone.')
             userInfo = createObject('groupserver.UserFromId',
                                     self.context, userId)
             uri = userInfo.url
             return self.request.RESPONSE.redirect(uri)
         else:
-            self.status = _(
+            self.status = _('status-person-not-found',
                 'Could not find any site-member with the email address '
                 '<code class="email">${email}</code>.',
                 mapping={'email': email})
 
     def handle_search_action_failure(self, action, data, errors):
         if len(errors) == 1:
-            self.status = _('<p>There is an error:</p>')
+            self.status = _('status-problem', '<p>There is an error:</p>')
         else:
-            self.status = _('<p>There are errors:</p>')
+            self.status = _('status-problems', '<p>There are errors:</p>')
