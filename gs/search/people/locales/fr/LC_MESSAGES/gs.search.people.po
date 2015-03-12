@@ -1,28 +1,29 @@
-#
+# 
 # Translators:
 # Alice Rose <heldinz@posteo.de>, 2015
 # Michael JasonSmith <mpj17@onlinegroups.net>, 2015
+# Razique Mahroua <razique.mahroua@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: gs.search.people\n"
 "POT-Creation-Date: 2015-02-22 22:33+0000\n"
-"PO-Revision-Date: 2015-02-22 20:19+0000\n"
-"Last-Translator: Alice Rose <heldinz@posteo.de>\n"
+"PO-Revision-Date: 2015-03-12 20:32+0000\n"
+"Last-Translator: Michael JasonSmith <mpj17@onlinegroups.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/gs-search-people/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
-"Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: fr\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Preferred-Encodings: utf-8 latin1\n"
 
 #. Default: "The email address of the person you wish to find."
 #: ./interfaces.py:24
 msgid "email-entry-description"
-msgstr ""
+msgstr "L'adresse e-mail de la personne que vous souhaiteriez trouver."
 
 #. Default: "Email address"
 #: ./interfaces.py:23
@@ -32,36 +33,35 @@ msgstr "Adresse e-mail"
 #. Default: "Search"
 #: ./searchpeople.py:43
 msgid "search-action"
-msgstr "Lancez la recherche"
+msgstr "Lancer la recherche"
 
 #. Default: "Search for a site member"
 #: ./searchpeople.py:29
 msgid "search-people-form-label"
-msgstr "Rechercher pour un membre du site web"
+msgstr "Recherche pour un membre du site"
 
 #. Default: "Search for a <strong>site member.</strong>"
 #: ./browser/templates/adminlinks.pt:4
 msgid "search-people-link"
-msgstr "Rechercher pour <strong>un membre du site web.</strong>"
+msgstr "Recherche un <strong>un membre du site</strong>."
 
+#. Default: "Could not find any site-member with the email address <code
 #. class=\"email\">${email}</code>."
-#. Default: "Could not find any site-member with the email address <code class=\"email\">${email}</code>."
 #: ./searchpeople.py:58
 msgid "status-person-not-found"
-msgstr ""
+msgstr "Aucun résultat pour la recherche avec l'adresse e-mail fournie <code class=\"email\">${email}</code>."
 
 #. Default: "<p>There is an error:</p>"
 #: ./searchpeople.py:65
 msgid "status-problem"
-msgstr "<p>Il y a un problème :</p>"
+msgstr "<p>Une erreur est survenue :</p>"
 
 #. Default: "<p>There are errors:</p>"
 #: ./searchpeople.py:67
 msgid "status-problems"
-msgstr "<p>Il y a des problèmes: </p>"
+msgstr "<p>Des erreurs sont survenues: </p>"
 
 #. Default: "Be joyous! You found someone."
 #: ./searchpeople.py:51
 msgid "status-success"
-msgstr ""
-
+msgstr "Soyez heureux ! Vous avez trouvé quelqu'un."
