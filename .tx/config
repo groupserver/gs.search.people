@@ -3,7 +3,6 @@ host = https://www.transifex.com
 
 [gs-search-people.gs-search-people-pot]
 file_filter = gs/search/people/locales/<lang>/LC_MESSAGES/gs.search.people.po
-source_file = gs/search/people/locales/en/LC_MESSAGES/gs.search.people.po
 source_lang = en
 type = PO
 

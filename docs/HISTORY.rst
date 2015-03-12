@@ -1,13 +1,24 @@
 Changelog
 =========
 
+2.1.1 (2015-03-12)
+------------------
+
+* [FR] Adding a French translation, thanks to `Razique Mahroua`_
+
+.. _Razique Mahroua:
+   https://www.transifex.com/accounts/profile/Razique/
+
+
 2.1.0 (2014-10-24)
 ------------------
 
-* Adding internationalisation
+* Adding internationalisation_
 * Using GitHub_ as the main code repository, and naming the
   reStructuredText files as such.
 
+.. _internationalisation:
+   https://www.transifex.com/projects/p/gs-search-people/
 .. _GitHub: https://github.com/groupserver/gs.search.people/
 
 2.0.1 (2014-06-12)
