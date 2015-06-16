@@ -19,7 +19,7 @@ from zope.component import createObject
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from gs.content.form.base import SiteForm
-from gs.site.member import SiteMembers
+from gs.site.member.base import SiteMembers
 from .interfaces import IGSSearchPeople
 from .queries import SearchPeopleQuery
 from . import GSMessageFactory as _
@@ -40,7 +40,7 @@ class SearchPeople(SiteForm):
         retval = SiteMembers(self.context)
         return retval
 
-    @form.action(label=_('search-action', 'Search'), 
+    @form.action(label=_('search-action', 'Search'),
                  failure='handle_search_action_failure')
     def handle_search(self, action, data):
 
@@ -48,7 +48,7 @@ class SearchPeople(SiteForm):
         userId = self.searchQuery.find_uids_by_email(email)
 
         if userId and (userId in self.siteMembers):
-            self.status = _('status-success', 
+            self.status = _('status-success',
                 'Be joyous! You found someone.')
             userInfo = createObject('groupserver.UserFromId',
                                     self.context, userId)
