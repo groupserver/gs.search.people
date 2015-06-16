@@ -18,9 +18,11 @@ from json import dumps as to_json
 from logging import getLogger
 log = getLogger('gs.search.profile.hook')
 from zope.cachedescriptors.property import Lazy
+from zope.component import createObject
 from zope.formlib import form
 from gs.auth.token import log_auth_error
 from gs.content.form.api.json import SiteEndpoint
+from gs.profile.email.base import EmailUser
 from .interfaces import IUserExists
 from .queries import SearchPeopleQuery
 
@@ -35,6 +37,18 @@ class ProfileExists(SiteEndpoint):
         retval = SearchPeopleQuery()
         return retval
 
+    def email_info(self, userInfo):
+        eu = EmailUser(self.context, userInfo)
+        allEmail = eu.get_addresses()
+        preferred = eu.get_delivery_addresses()
+        unverified = eu.get_unverified_addresses()
+        other = list(set(allEmail) - set(preferred) - set(unverified))
+        retval = {'all': allEmail,
+                  'preferred': preferred,
+                  'other': other,
+                  'unverified': unverified, }
+        return retval
+
     @form.action(label='Search', name='search', prefix='',
                  failure='handle_search_failure')
     def handle_search(self, action, data):
@@ -44,9 +58,16 @@ class ProfileExists(SiteEndpoint):
 :param dict data: The form data.'''
 
         email = parseaddr(data['email'])[1]
-        userId = self.searchQuery.find_uids_by_email(email)
-
-        retval = to_json(userId)
+        userId = self.query.find_uids_by_email(email)
+        r = {}
+        if userId:
+            userInfo = createObject('groupserver.UserFromId',
+                                    self.context, userId)
+            r = {'id': userInfo.id,
+                 'name': userInfo.name,
+                 'url': ''.join((self.siteInfo.url, userInfo.url)),
+                 'email': self.email_info(userInfo), }
+        retval = to_json(r)
         return retval
 
     def handle_search_failure(self, action, data, errors):

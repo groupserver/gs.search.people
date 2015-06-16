@@ -34,7 +34,7 @@ class IUserExists(Interface):
     email = ASCIILine(
         title='Email address',
         description='The person that is being searched',
-        required=False)
+        required=True)
 
     token = AuthToken(
         title='Token',
