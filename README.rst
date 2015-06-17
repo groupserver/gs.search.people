@@ -43,14 +43,16 @@ following parameters:
 ``token``:
   The authentication token [#token]_.
 
-``email``:
-  The email address to search.
+``user``:
+  *Either* an ``email`` address belonging to the person, *or* the
+ ``userId``
 
 ``search``:
   The "form" action. (The value can be anything.)
 
 :Note: Unlike the page_ the web hook searches **all people**,
-       regardless of their site membership.
+       regardless of their site membership. This can disclose a
+       lot of information, so the data should be used cautiously.
 
 Return value
 ~~~~~~~~~~~~
@@ -68,6 +70,10 @@ values.
 ``url``:
   The URL of the profile.
 
+``groups``:
+  A list of identifiers for the groups that the person is a
+  member of.
+
 ``email``:
   The email addresses associated with the profile.
 
@@ -83,7 +89,7 @@ Calling with ``wget``:
 
 .. code-block:: console
 
-   $ wget --post-data='token=fake&email=a.person@home.example.com&search' \
+   $ wget --post-data='token=fake&user=a.person@home.example.com&search' \
      http://groups.example.com/gs-search-people.json
 
 The returned JSON object:
@@ -94,6 +100,10 @@ The returned JSON object:
     "id": "qK7SgjsTHcLNrJ2ClevcJ0",
     "name": "A. Person",
     "url": "https:/groups.example.com//p/qK7SgjsTHcLNrJ2ClevcJ0",
+    "groups": [
+      "example",
+      "test"
+    ],
     "email": {
       "all": [
         "a.person@home.example.com",

@@ -22,6 +22,7 @@ from zope.component import createObject
 from zope.formlib import form
 from gs.auth.token import log_auth_error
 from gs.content.form.api.json import SiteEndpoint
+from gs.group.member.base import user_member_of_group
 from gs.profile.email.base import EmailUser
 from .interfaces import IUserExists
 from .queries import SearchPeopleQuery
@@ -35,6 +36,15 @@ class ProfileExists(SiteEndpoint):
     @Lazy
     def query(self):
         retval = SearchPeopleQuery()
+        return retval
+
+    @Lazy
+    def groups(self):
+        FOLDER_TYPES = ['Folder', 'Folder (ordered)']
+        groups = getattr(self.context, 'groups')
+        retval = [folder
+                  for folder in groups.objectValues(FOLDER_TYPES)
+                  if folder.getProperty('is_group', False)]
         return retval
 
     def email_info(self, userInfo):
@@ -56,17 +66,24 @@ class ProfileExists(SiteEndpoint):
 
 :param action: The button that was clicked.
 :param dict data: The form data.'''
-
-        email = parseaddr(data['email'])[1]
-        userId = self.query.find_uids_by_email(email)
+        if '@' in data['user']:  # It is an email address
+            email = parseaddr(data['user'])[1]
+            userId = self.query.find_uids_by_email(email)
+        else:  # userId
+            userId = data['user']
         r = {}
         if userId:
             userInfo = createObject('groupserver.UserFromId',
                                     self.context, userId)
-            r = {'id': userInfo.id,
-                 'name': userInfo.name,
-                 'url': ''.join((self.siteInfo.url, userInfo.url)),
-                 'email': self.email_info(userInfo), }
+            if not userInfo.anonymous:
+                groups = [group.getId()
+                          for group in self.groups
+                          if user_member_of_group(userInfo, group)]
+                r = {'id': userInfo.id,
+                     'name': userInfo.name,
+                     'url': ''.join((self.siteInfo.url, userInfo.url)),
+                     'groups': groups,
+                     'email': self.email_info(userInfo), }
         retval = to_json(r)
         return retval
 

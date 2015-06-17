@@ -12,7 +12,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ############################################################################
-from __future__ import absolute_import, unicode_literals
+from __future__ import absolute_import, unicode_literals, print_function
 from zope.interface import Interface
 from zope.schema import TextLine, ASCIILine
 from gs.auth.token import AuthToken
@@ -31,9 +31,9 @@ class IGSSearchPeople(Interface):
 class IUserExists(Interface):
     'Determine if a user exists'
 
-    email = ASCIILine(
-        title='Email address',
-        description='The person that is being searched',
+    user = ASCIILine(
+        title='Either the user identifier or email address',
+        description='The identifier for the person that is being searched',
         required=True)
 
     token = AuthToken(
