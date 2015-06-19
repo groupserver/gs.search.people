@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.2.0 (2015-06-19)
+------------------
+
+* Adding the ``gs-search-people.json`` web-hook
+* Adding Sphinx documentation
+
 2.1.1 (2015-03-12)
 ------------------
 

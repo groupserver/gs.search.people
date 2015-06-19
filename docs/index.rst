@@ -1,13 +1,9 @@
-====================
-``gs.search.people``
-====================
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Search for GroupServer site members
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:mod:`gs.search.people`
+=======================
 
 :Author: `Michael JasonSmith`_
 :Contact: Michael JasonSmith <mpj17@onlinegroups.net>
-:Date: 2015-06-16
+:Date: 2015-06-19
 :Organization: `GroupServer.org`_
 :Copyright: This document is licensed under a
   `Creative Commons Attribution-Share Alike 4.0 International License`_
@@ -16,12 +12,26 @@ Search for GroupServer site members
 ..  _Creative Commons Attribution-Share Alike 4.0 International License:
     http://creativecommons.org/licenses/by-sa/4.0/
 
-Introduction
-============
-
 This product provides the page that allows the site administrator
 to search the members of a GroupServer_ site, and a web hook to
 allow external systems to search for someone.
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+   
+   page
+   hook
+   HISTORY
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
 Resources
 =========
