@@ -5,7 +5,10 @@ Changelog
 ------------------
 
 * Adding the ``gs-search-people.json`` web-hook
-* Adding Sphinx documentation
+* Adding Sphinx documentation_
+
+.. _documentation:
+   http://groupserver.readthedocs.org/projects/gssearchpeople/en/latest
 
 2.1.1 (2015-03-12)
 ------------------

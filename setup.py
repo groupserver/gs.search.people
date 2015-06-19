@@ -69,6 +69,7 @@ setup(
         'gs.site.member.base',
         'Products.GSContent',
     ],
+    extras_require={'docs': ['Sphinx']},
     entry_points="""
     # -*- Entry points: -*-
     """,)
