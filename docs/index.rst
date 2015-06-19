@@ -36,6 +36,8 @@ Indices and tables
 Resources
 =========
 
+- Documentation:
+  http://groupserver.readthedocs.org/projects/gssearchpeople/en/latest
 - Code repository:
   https://github.com/groupserver/gs.search.people
 - Translations:
