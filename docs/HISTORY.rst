@@ -8,7 +8,7 @@ Changelog
 * Adding Sphinx documentation_
 
 .. _documentation:
-   http://groupserver.readthedocs.org/projects/gssearchpeople/en/latest
+   http://groupserver.readthedocs.io/projects/gssearchpeople/en/latest
 
 2.1.1 (2015-03-12)
 ------------------
